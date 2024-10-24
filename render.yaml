@@ -3,15 +3,19 @@ services:
     name: benford-analyzer-backend
     env: python
     buildCommand: |
-      apt-get update && apt-get install -y gfortran
-      pip install --upgrade pip
-      pip install wheel
-      pip install --no-cache-dir numpy
+      # Instalacja zależności systemowych
+      apt-get update
+      apt-get install -y gfortran gcc g++ make
+      apt-get install -y python3-dev
+      # Aktualizacja pip i instalacja podstawowych narzędzi
+      python -m pip install --upgrade pip
+      pip install wheel setuptools numpy
+      # Instalacja pozostałych zależności
       pip install -r requirements.txt
     startCommand: gunicorn main:app
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0
-      - key: NUMPY_VERSION
-        value: 1.23.0
+        value: 3.8.12
+      - key: LD_LIBRARY_PATH
+        value: /usr/local/lib
     plan: free
