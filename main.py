@@ -12,11 +12,13 @@ import os
 app = Flask("Benford Analyzer")
 CORS(app, resources={
     r"/*": {
-        "origins": ALLOWED_ORIGINS,
+        "origins": [
+            "http://localhost:3000",  # dla lokalnego developmentu
+            "https://render-deploy-front.onrender.com"  # dla produkcji
+        ],
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type"]
     }
-})
 datastore = DataStore()
 correlation_analyzer = CorrelationAnalyzer()
 
