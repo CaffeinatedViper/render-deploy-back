@@ -19,6 +19,7 @@ CORS(app, resources={
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type"]
     }
+})
 datastore = DataStore()
 correlation_analyzer = CorrelationAnalyzer()
 
