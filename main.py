@@ -12,10 +12,7 @@ import os
 app = Flask("Benford Analyzer")
 CORS(app, resources={
     r"/*": {
-        "origins": [
-            "http://localhost:3000",  # dla lokalnego developmentu
-            "https://benford-analyzer-frontend.onrender.com"  # dla produkcji
-        ],
+        "origins": ALLOWED_ORIGINS,
         "methods": ["GET", "POST", "OPTIONS"],
         "allow_headers": ["Content-Type"]
     }
