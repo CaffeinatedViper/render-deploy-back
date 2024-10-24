@@ -6,7 +6,7 @@ scipy==1.13.1
 scikit-learn==1.5.0
 feature-engine==1.8.0
 matplotlib==3.9.2
-
+seaborn==0.13.2
 # Zależności wsparcia
 Werkzeug==3.0.3  # dla Flask
 MarkupSafe==2.1.5  # dla Jinja2
